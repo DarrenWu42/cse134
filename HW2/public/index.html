@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Darren Wu" />
+	<meta name="keywords" content="HTML, CSS, JavaScript" />
+	<meta name="author" content="Darren Wu" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Darren Wu</title>
+	<link href="images/favicon.ico" rel="icon" />
+	<style>
+		body{
+			background-color: lightgrey;
+		}
+		table, th, td {
+  			border: 1px solid black;
+		}
+	</style>
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyCf-ZzglFpUtmFpBBN08tFOV464tPRopCw",
+		  authDomain: "cse134hw2-302ea.firebaseapp.com",
+		  projectId: "cse134hw2-302ea",
+		  storageBucket: "cse134hw2-302ea.appspot.com",
+		  messagingSenderId: "761303250039",
+		  appId: "1:761303250039:web:9e61461ec7368ac9cb0272",
+		  measurementId: "G-S103XSE4NT"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script>
+</head>
+
+<body>
+	<header>
+		<h1><a href="">Darren Wu</a></h1>
+		<nav>
+			<a href="#biography">Biography</a> |
+			<a href="#cv">CV</a> |
+			<!--a href="#projects">Projects</a--> |
+			<a href="#contact">Contact</a> |
+			<a href="experiments.html">Experiments</a>
+		</nav>
+	</header>
+
+	<main>
+		<h2 id="biography">Biography</h2>
+			<svg width="50%" height="100%">
+				<rect width="100%" height="100%" fill="grey" />
+				<circle cx="5%" cy="100%" r="150" fill="blue" stroke="black" />
+				<text x="50" y="100" font-family="Verdana" font-size="55" fill="white" stroke="black" stroke-width="2">
+					Hello!
+				</text>
+			</svg>
+			<p>
+				I'm a <b>Cognitive Science Machine Learning</b> and <b>Computer Engineering</b> student at <strong>UCSD</strong>. I want to go 
+				into the field of <span style="color: gray;">brain computer interfaces</span> and software engineering. I start programming projects for 
+				various topics of interest, such as:
+			</p>
+			<ul>
+				<li>Discord Bots</li>
+				<li>Game Mods</li>
+				<template>
+					<li>Automation</li>
+				</template>
+			</ul>
+			<hr/>
+
+		<h2 id="cv">CV</h2>
+			<table> <!-- width="50%" -->
+				<caption>Job History</caption>
+				<colgroup>
+					<col span="3"> <!-- width="150" -->
+					<col>
+				</colgroup>
+				<tr>
+					<th>Icon</th>
+					<th>Job Title</th>
+					<th>Dates</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><img src="images/companies/sdsc.webp" alt="SDSC"></td>
+					<td>Software Development Engineer Intern</td>
+					<td>Jan 2022 - Current</td>
+					<td>
+						<ul>
+							<li>Just started tbh</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="images/companies/ucsd.webp" alt="UCSD"></td>
+					<td>Desktop Services Unit Programmer</td>
+					<td>Sep 2021 - Dec 2021</td>
+					<td>
+						<ul>
+							<li>Deploy, distribute, and repair computers throughout UCSD libraries</li>
+							<li>Resolve staff IT problems through an online ticketing system</li>
+							<li>Established a new standard for Apple devices and external monitors</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="images/companies/goodwill.webp" alt="Goodwill"></td>
+					<td>Information Technology Support Technician</td>
+					<td>Aug 2020 - Sep 2021</td>
+					<td>
+						<ul>
+							<li>Implemented automation scripts for obtaining specs, creating users in Windows Server, setting static IP addresses, and installing software</li>
+							<li>Optimized systems software & streamlined operations via hardware architecture proposal</li>
+							<li>trengthened security through defining & managing clearance permissions in system</li>
+							<li>Spearheaded system refactoring to improve management system alongside lead technician</li>
+							<li>Built, fixed, and deployed computers and laptops for company use across Ventura and Santa Barbara county</li>
+							<li>Installed network cables in new locations and fixed issues in any current locations</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+			<hr/>
+
+		<!--h2 id="Projects">Projects</h2>
+			<hr/-->
+		
+		<h2 id="contact">Contact</h2>
+			<h3>Email</h3>
+				<p>wudarren0908@gmail.com</p>
+			<section id="social-medias">
+				<h3>Social Medias</h3>
+					<p><i>Instagram</i>: @wuuuuuuhoooooo</p>
+					<p><i>Discord</i>: @1NF1N173#0042</p>
+			</section>
+			<div id="contact-form">
+				<h3>Contact Form</h3>
+				<form>
+					<fieldset>
+						<legend>Personal Information</legend>
+						<label for="first-name">First Name</label>
+						<br/>
+						<input type="text" id="first-name" name="firstname" placeholder="Your first name..">
+						<br/><br/>
+						
+						<label for="last-name">Last Name</label>
+						<br/>
+						<input type="text" id="last-name" name="lastname" placeholder="Your last name..">
+						<br/><br/>
+
+						<label for="occupation">Occupation</label>
+						<br/>
+						<select id="occupation" name="occupation">
+							<optgroup label="Industry">
+								<option value="rec">Recruiter</option>
+								<option value="swe">Software Engineer</option>
+							</optgroup>
+							<optgroup label="Education">
+								<option value="teacher">Teacher</option>
+								<option value="ta">Teacher Assisstant</option>
+								<option value="student">Student</option>
+							</optgroup>
+						</select>
+						<br/><br/>
+
+						<label for="browser">Choose your browser from the list:</label>
+						<br/>
+						<input list="browsers" name="browser" id="browser">
+						<datalist id="browsers">
+							<option value="Edge">
+							<option value="Firefox">
+							<option value="Chrome">
+							<option value="Opera">
+							<option value="Safari">
+						</datalist>
+					</fieldset>
+					<fieldset>
+						<legend>Message</legend>
+						<label for="subject">Subject</label>
+						<br/>
+						<textarea id="subject" name="subject" placeholder="Write subject.."></textarea>
+						<br/><br/>
+
+						<label for="message">Message</label>
+						<br/>
+						<textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+						<br/><br/>
+						<button type="submit">Submit</button>
+					</fieldset>
+				</form>
+			</div>
+	</main>
+
+	<footer>
+		<hr/>
+		<p>💯This page was adapted with &hearts; by Darren Wu 💯</p>
+	</footer>
+</body>
+
+</html>
