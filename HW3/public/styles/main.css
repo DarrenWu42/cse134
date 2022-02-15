@@ -1,6 +1,7 @@
 /* main.css */
-/* @media (min-width:641px)  {  portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones } */
-/* @media (min-width:961px)  {  tablet, landscape iPad, lo-res laptops ands desktops  } */
+* {
+  box-sizing: border-box;
+}
 
 body{
   background-color: black;
@@ -34,31 +35,56 @@ header {
   background-image: url("../images/bg_header.jpg");
   background-position: center;
   background-attachment: fixed;
-  padding: 20px;
-  margin: 5px;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
   height: 100vh;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
 
-header h1 {
-  font-size: xx-large;
+header h1{
+  font-size: 5vw;
+}
+
+header h2{
+  font-size: 3vw;
+}
+
+header nav{
+  font-size: 2vw;
+}
+
+.nav-container{
+  display: flex;
+  width: 25vw;
+  justify-content: space-evenly;
 }
 
 /****** main content ******/
 /*** section defs ***/
 .grey-section{
   background-color: lightgrey;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15vw;
   margin: 5px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .white-section{
   background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   padding: 20px;
   margin: 5px;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.white-section table{
+  width: 50vm;
 }
 
 ul li {
@@ -76,4 +102,11 @@ footer {
   font-size: small;
   margin: 5px;
   background-color: white;
+}
+
+@media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
+
+} 
+@media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
+  
 }
