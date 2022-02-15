@@ -19,7 +19,7 @@
 
 @media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
   :root{
-    --large-font: 4vw;
+    --large-font: 6vw;
     --xlarge-font: 6vw;
     --xxlarge-font: 10vw;
   }
@@ -158,6 +158,28 @@ footer {
   .white-section{
     padding: 20px 0vw;
   }
+
+  .nav-container{
+    height: 40vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-item{
+    width: 100vw;
+  }
+
+  .nav-breaker{
+    display: none;
+  }
+
+  .grey-section ul{
+    text-align: left;
+    list-style: inside;
+  }
+  
 }
 
 @media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
