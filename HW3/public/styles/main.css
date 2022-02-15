@@ -4,6 +4,7 @@
 }
 
 :root{
+  --normal-font: 2vw;
   --large-font: 2vw;
   --xlarge-font: 3vw;
   --xxlarge-font: 5vw;
@@ -11,6 +12,7 @@
 
 @media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
   :root{
+    --normal-font: 2vw;
     --large-font: 4vw;
     --xlarge-font: 6vw;
     --xxlarge-font: 10vw;
@@ -19,8 +21,9 @@
 
 @media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
   :root{
+    --normal-font: 3vw;
     --large-font: 6vw;
-    --xlarge-font: 6vw;
+    --xlarge-font: 8vw;
     --xxlarge-font: 10vw;
   }
 }
@@ -29,6 +32,7 @@ body{
   background-color: black;
   font-family: "Monsterrat", Arial, Helvetica, sans-serif;
   text-align: center;
+  font-size: var(--normal-font);
 }
 
 table, th, td {
@@ -138,10 +142,27 @@ table img{
   width: 20vw;
 }
 
+input, select{
+  height: 5vh
+}
+textarea{
+  width: 50vw;
+}
+
+a{
+  transition: font-size 1s, color 2s;
+}
+
 a:link { color: white; }
 a:visited { color: rgb(219, 219, 219); }
-a:visited:hover { color: orange; }
-a:hover { color: orange; }
+a:visited:hover { 
+  font-size: 1.2em;
+  color: orange;
+}
+a:hover {
+  font-size: 1.2em;
+  color: orange; 
+}
 
 /****** footer ******/
 footer {
@@ -191,6 +212,10 @@ footer {
     display: flex;
     width: 100vw;
     justify-content: space-evenly;
+  }
+
+  .white-section{
+    padding: 20px 0vw;
   }
   
   .nav-item{
