@@ -4,7 +4,25 @@
 }
 
 :root{
-  --navigation-size: 25vw;
+  --large-font: 2vw;
+  --xlarge-font: 3vw;
+  --xxlarge-font: 5vw;
+}
+
+@media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
+  :root{
+    --large-font: 4vw;
+    --xlarge-font: 6vw;
+    --xxlarge-font: 10vw;
+  }
+}
+
+@media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
+  :root{
+    --large-font: 4vw;
+    --xlarge-font: 6vw;
+    --xxlarge-font: 10vw;
+  }
 }
 
 body{
@@ -18,12 +36,12 @@ table, th, td {
 }
 
 h2{
-  font-size: 3vw;
+  font-size: var(--xlarge-font);
   margin-block: .4em;
 }
 
 h3{
-  font-size: 2vw;
+  font-size: var(--large-font);
   margin-block: .4em;
 }
 
@@ -60,17 +78,21 @@ header {
 }
 
 header h1{
-  font-size: 5vw;
+  font-size: var(--xxlarge-font);
 }
 
 header nav{
-  font-size: 2vw;
+  font-size: var(--large-font);
 }
 
 .nav-container{
   display: flex;
-  width: var(--navigation-size);
+  width: 30vw;
   justify-content: space-evenly;
+}
+
+.nav-item{
+  width: 40%;
 }
 
 /****** main content ******/
@@ -93,6 +115,10 @@ header nav{
   margin: 5px;
 }
 
+.biography{
+  text-align: left;
+}
+
 .white-section{
   background-color: white;
   display: flex;
@@ -105,6 +131,11 @@ header nav{
 
 .white-section ul{
   text-align: left;
+}
+
+table img{
+  max-width: 200px;
+  width: 20vw;
 }
 
 a:link { color: white; }
@@ -120,8 +151,27 @@ footer {
 }
 
 @media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
+  header{
+    flex-direction: column;
+  }
 
-} 
+  .white-section{
+    padding: 20px 0vw;
+  }
+}
+
 @media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
+  header{
+    flex-direction: column;
+  }
+
+  .nav-container{
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+  }
   
+  .nav-item{
+    width: 40%;
+  }
 }
