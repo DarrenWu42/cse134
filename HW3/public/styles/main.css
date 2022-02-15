@@ -3,14 +3,30 @@
   box-sizing: border-box;
 }
 
+:root{
+  --navigation-size: 25vw;
+}
+
 body{
   background-color: black;
   font-family: "Monsterrat", Arial, Helvetica, sans-serif;
   text-align: center;
 }
+
 table, th, td {
     border: 1px solid black;
 }
+
+h2{
+  font-size: 3vw;
+  margin-block: .4em;
+}
+
+h3{
+  font-size: 2vw;
+  margin-block: .4em;
+}
+
 @font-face {
   font-family: "Monsterrat";
   font-style: normal;
@@ -47,17 +63,13 @@ header h1{
   font-size: 5vw;
 }
 
-header h2{
-  font-size: 3vw;
-}
-
 header nav{
   font-size: 2vw;
 }
 
 .nav-container{
   display: flex;
-  width: 25vw;
+  width: var(--navigation-size);
   justify-content: space-evenly;
 }
 
@@ -68,9 +80,18 @@ header nav{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 15vw;
+  padding: 20px 15vw;
   margin: 5px;
   min-height: 100vh;
+}
+
+.grey-section ul{
+  text-align: center;
+  list-style: inside;
+}
+
+.grey-section ul li{
+  margin: 5px;
 }
 
 .white-section{
@@ -78,7 +99,7 @@ header nav{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 15vw;
   margin: 5px;
   min-height: 100vh;
 }
@@ -87,8 +108,7 @@ header nav{
   width: 50vm;
 }
 
-ul li {
-  margin: 5px;
+.white-section ul{
   text-align: left;
 }
 
