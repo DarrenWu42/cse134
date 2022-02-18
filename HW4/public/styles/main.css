@@ -1,0 +1,224 @@
+/* main.css */
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  --normal-font: 2vw;
+  --large-font: 2vw;
+  --xlarge-font: 3vw;
+  --xxlarge-font: 5vw;
+}
+
+@media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
+  :root{
+    --normal-font: 2vw;
+    --large-font: 4vw;
+    --xlarge-font: 6vw;
+    --xxlarge-font: 10vw;
+  }
+}
+
+@media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
+  :root{
+    --normal-font: 3vw;
+    --large-font: 6vw;
+    --xlarge-font: 8vw;
+    --xxlarge-font: 10vw;
+  }
+}
+
+body{
+  background-color: black;
+  font-family: "Monsterrat", Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: var(--normal-font);
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+h2{
+  font-size: var(--xlarge-font);
+  margin-block: .4em;
+}
+
+h3{
+  font-size: var(--large-font);
+  margin-block: .4em;
+}
+
+@font-face {
+  font-family: "Monsterrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Monsterrat";
+  font-style: bold;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Monsterrat";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-LightItalic.ttf") format("truetype");
+}
+
+/****** header ******/
+header {
+  background-image: url("../images/bg_header.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+header h1{
+  font-size: var(--xxlarge-font);
+}
+
+header nav{
+  font-size: var(--large-font);
+}
+
+.nav-container{
+  display: flex;
+  width: 30vw;
+  justify-content: space-evenly;
+}
+
+.nav-item{
+  width: 40%;
+}
+
+/****** main content ******/
+/*** section defs ***/
+.grey-section{
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15vw;
+  margin: 5px;
+  min-height: 100vh;
+}
+
+.grey-section ul{
+  text-align: center;
+  list-style: inside;
+}
+
+.grey-section ul li{
+  margin: 5px;
+}
+
+.biography{
+  text-align: left;
+}
+
+.white-section{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 15vw;
+  margin: 5px;
+  min-height: 100vh;
+}
+
+.white-section ul{
+  text-align: left;
+}
+
+table img{
+  max-width: 200px;
+  width: 20vw;
+}
+
+input, select{
+  height: 5vh
+}
+textarea{
+  width: 50vw;
+}
+
+a{
+  transition: font-size 1s, color 2s;
+}
+
+a:link { color: white; }
+a:visited { color: rgb(219, 219, 219); }
+a:visited:hover { 
+  font-size: 1.2em;
+  color: orange;
+}
+a:hover {
+  font-size: 1.2em;
+  color: orange; 
+}
+
+/****** footer ******/
+footer {
+  font-size: small;
+  margin: 5px;
+  background-color: white;
+}
+
+@media (max-width:640px) { /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/ 
+  header{
+    flex-direction: column;
+  }
+
+  .white-section{
+    padding: 20px 0vw;
+  }
+
+  .nav-container{
+    height: 40vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-item{
+    width: 100vw;
+  }
+
+  .nav-breaker{
+    display: none;
+  }
+
+  .grey-section ul{
+    text-align: left;
+    list-style: inside;
+  }
+  
+}
+
+@media (max-width:960px) { /*tablet, landscape iPad, lo-res laptops ands desktops*/
+  header{
+    flex-direction: column;
+  }
+
+  .nav-container{
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+
+  .white-section{
+    padding: 20px 0vw;
+  }
+  
+  .nav-item{
+    width: 40%;
+  }
+}
