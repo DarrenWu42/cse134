@@ -10,11 +10,6 @@
 	<title>Native Dialogs</title>
 	<link href="images/favicon.ico" rel="icon" />
   <link rel="stylesheet" href="styles/main.css" />
-  <style>
-    body{
-      background-color: white;
-    }
-  </style>
 	<script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
@@ -46,22 +41,22 @@
 	</header>
 
 	<main>
-		<h2 id="nativedialogs">Native Dialogs</h2>
-    <!--There are also 3 global functions that we are focusing on: alert(), confirm(), and prompt(). You can call these functions anywhere in your code at 
-      any time because they are global - the browser provides an implantation for them for you so you don’t have to worry about how they work. All global 
-      variables and functions in javascript that is run in the browser is attached to the global variable, which in this case is the window object. This 
-      means that you can call window.alert()  and it will work just fine, but browsers are smart enough to know which global functions and variables are 
-      what, so you are allowed to omit the window. part.-->
+    <section class="grey-section">
+		  <h2 id="nativedialogs">Native Dialogs</h2>
       <button id="alert-button">Alert</button>
       <button id="confirm-button">Confirm</button>
       <button id="prompt-button">Prompt</button>
       <button id="safer-prompt-button">Safer Prompt</button>
+      <h3>Output</h3>
+      <output id="button-output"></output>
+    </section>
 	</main>
 
 	<footer>
 		<hr/>
 		<p>💯This page was adapted with &hearts; by Darren Wu 💯</p>
 	</footer>
+  <script type="text/javascript" src="./scripts/dompurify/purify.min.js"></script>
   <script type="text/javascript" src="./scripts/nativedialogs.js"></script>
 </body>
 

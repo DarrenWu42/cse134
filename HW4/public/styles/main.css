@@ -143,10 +143,17 @@ table img{
 }
 
 input, select{
-  height: 5vh
+  height: 5vh;
 }
+
 textarea{
   width: 50vw;
+}
+
+button {
+  height: 5vh;
+  margin: 1vh;
+  font-size: 3vh;
 }
 
 a{
