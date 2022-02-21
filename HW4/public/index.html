@@ -10,6 +10,7 @@
 	<title>Darren Wu</title>
 	<link rel="icon" href="images/favicon.ico" />
 	<link rel="stylesheet" href="styles/main.css" />
+	<script type="module" src="./scripts/main.js"></script>
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
@@ -32,7 +33,7 @@
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
-	  </script>
+	</script>
 </head>
 
 <body>
@@ -51,9 +52,9 @@
 	</header>
 
 	<main>
-		<section class="grey-section">
-			<h2 id="biography">Biography</h2>
-			<p class="biography">
+		<section id="biography" class="biography grey-section">
+			<h2>Biography</h2>
+			<p>
 				I'm a <b>Cognitive Science Machine Learning</b> and <b>Computer Engineering</b> student at <strong>UCSD</strong>. I want to go 
 				into the field of brain computer interfaces and software engineering. I start programming projects for various topics of interest, 
 				such as:
@@ -65,8 +66,8 @@
 			</ul>
 		</section>
 
-		<section class="white-section">
-			<h2 id="cv">CV</h2>
+		<section id="cv" class="cv white-section">
+			<h2>CV</h2>
 			<table>
 				<tr>
 					<th>Icon</th>
@@ -116,8 +117,8 @@
 
 		<!--h2 id="Projects">Projects</h2>
 			<hr/-->
-		<section class="grey-section">
-			<h2 id="contact">Contact</h2>
+		<section id="contact" class="contact grey-section">
+			<h2>Contact</h2>
 			<h3>Email</h3>
 				<p>wudarren0908@gmail.com</p>
 			<section id="social-medias">

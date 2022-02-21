@@ -1,10 +1,22 @@
 /* main.css */
-* {
-  box-sizing: border-box;
-}
 
-html{
-  scroll-behavior: smooth; 
+@font-face {
+  font-family: "Monsterrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Monsterrat";
+  font-style: bold;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Monsterrat";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Monsterrat/Montserrat-LightItalic.ttf") format("truetype");
 }
 
 :root{
@@ -32,6 +44,16 @@ html{
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth; 
+}
+
+/****** body and general elements ******/
+
 body{
   background-color: black;
   font-family: "Monsterrat", Arial, Helvetica, sans-serif;
@@ -41,6 +63,10 @@ body{
 
 table, th, td {
     border: 1px solid black;
+}
+
+h1{
+  font-size: var(--xxlarge-font);
 }
 
 h2{
@@ -53,26 +79,7 @@ h3{
   margin-block: .4em;
 }
 
-@font-face {
-  font-family: "Monsterrat";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/Monsterrat/Montserrat-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Monsterrat";
-  font-style: bold;
-  font-weight: 400;
-  src: url("../fonts/Monsterrat/Montserrat-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Monsterrat";
-  font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/Monsterrat/Montserrat-LightItalic.ttf") format("truetype");
-}
-
-/****** header ******/
+/***** header *****/
 header {
   background-image: url("../images/bg_header.jpg");
   background-position: center;
@@ -83,10 +90,6 @@ header {
   height: 100vh;
   color: white;
   text-shadow: 2px 2px 4px #000000;
-}
-
-header h1{
-  font-size: var(--xxlarge-font);
 }
 
 header nav{
@@ -103,8 +106,8 @@ header nav{
   width: 40%;
 }
 
-/****** main content ******/
-/*** section defs ***/
+/***** main content *****/
+/**** general sections  ****/
 .grey-section{
   background-color: lightgrey;
   display: flex;
@@ -112,19 +115,6 @@ header nav{
   padding: 20px 15vw;
   margin: 5px;
   min-height: 100vh;
-}
-
-.grey-section ul{
-  text-align: center;
-  list-style: inside;
-}
-
-.grey-section ul li{
-  margin: 5px;
-}
-
-.biography{
-  text-align: left;
 }
 
 .white-section{
@@ -137,7 +127,22 @@ header nav{
   min-height: 100vh;
 }
 
-.white-section ul{
+/*** section specific overrides ***/
+
+.biography ul{
+  text-align: center;
+  list-style: inside;
+}
+
+.biography ul li{
+  margin: 5px;
+}
+
+.biography p{
+  text-align: left;
+}
+
+.cv ul{
   text-align: left;
 }
 
@@ -175,7 +180,7 @@ a:hover {
   color: orange; 
 }
 
-/****** footer ******/
+/***** footer *****/
 footer {
   font-size: small;
   margin: 5px;
