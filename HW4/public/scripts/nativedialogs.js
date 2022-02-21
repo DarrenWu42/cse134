@@ -17,19 +17,20 @@ alert_button.addEventListener('click', () => {
     window.alert('Alert pressed!');
 });
 
-confirm_button.addEventListener('click', event => {
+confirm_button.addEventListener('click', () => {
     let response = window.confirm('Do you confirm this?');
-    let output = response ? 'OK' : 'Cancel';
-    button_output.innerHTML = confirm_output(output);
+    button_output.innerHTML = confirm_output(response);
 });
 
-prompt_button.addEventListener('click', event => {
+prompt_button.addEventListener('click', () => {
     let response = window.prompt('What is your name?', 'Jim Bob');
-    button_output.innerHTML = prompt_output(response);
+    button_output.innerHTML = response == null || response.length == 0 ? 
+                                prompt_negative_output : prompt_output(response);
 });
 
-safer_prompt_button.addEventListener('click', event => {
+safer_prompt_button.addEventListener('click', () => {
     let response = window.prompt('What is your name?', 'Jim Bob');
     let output = DOMPurify.sanitize(response);
-    button_output.innerHTML = prompt_output(output);
+    button_output.innerHTML = response == null || output.length == 0 ? 
+                                prompt_negative_output : prompt_output(output);
 });
