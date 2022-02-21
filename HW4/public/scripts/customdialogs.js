@@ -20,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let prompt_output = expression => `The value returned by the prompt method is : ${expression}`;
     let prompt_negative_output = `User didn't enter anything`;
 
+    // open dialog button event listeners
     alert_button.addEventListener('click', function onOpen() {
         if (typeof alert_dialog.showModal === "function") {
             alert_dialog.showModal();
@@ -44,10 +45,12 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // update value event listeners
     input_first_name.addEventListener('change', () => {
         prompt_ok_button.value = input_first_name.value;
     });
 
+    // handle dialog close event listeners
     confirm_dialog.addEventListener('close', () => {
         button_output.innerHTML = confirm_output(confirm_dialog.returnValue);
     });
