@@ -121,8 +121,10 @@ function showDialog(dialog){
 window.addEventListener('DOMContentLoaded', ()=>{
     table_body = $('#crud-table-body');
     table_rows = table_body.rows;
-    posts_info = [{"title":"OpenCV in Python","date":"4/5/2021","summary":"An exploration of the OpenCV Python library and its important functions."},
-                    {"title":"Multithreading with Discord.py","date":"5/3/2021","summary":"How to use Python multithreading to handle intensive calculations alongside Discord Python API"},]; // TODO: get from local storage
+    posts_info = window.localStorage.getItem('posts_info') === null ? 
+    [{"title":"OpenCV in Python","date":"4/5/2021","summary":"An exploration of the OpenCV Python library and its important functions."},
+    {"title":"Multithreading with Discord.py","date":"5/3/2021","summary":"How to use Python multithreading to handle intensive calculations alongside Discord Python API"},] :
+    JSON.parse(window.localStorage.getItem('posts_info'));
 
     delete_dialog = $('#delete-dialog');
     delete_yes_button = $('#delete-yes-button');
@@ -154,4 +156,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
     create_new_post_button.onclick = () => createPostDialog();
     
     createTable();
+});
+
+window.addEventListener("beforeunload", () => { 
+    window.localStorage.setItem('posts_info', JSON.stringify(posts_info));
 });
