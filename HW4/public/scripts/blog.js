@@ -150,10 +150,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         post_summary = DOMPurify.sanitize(form_post_summary.value);
     });
 
-    // create new post button even listener
-    create_new_post_button.addEventListener('click', () => {
-        createPostDialog();
-    });
+    // onclick create new post
+    create_new_post_button.onclick = () => createPostDialog();
     
     createTable();
 });
