@@ -60,6 +60,11 @@ function createTableRow(post_index, post_info){
 }
 
 function createPostDialog(){
+    // set new data and form data to empty
+    post_title = form_post_title.value = '';
+    post_date = form_post_date.value = '';
+    post_summary = form_post_summary.value = '';
+
     // show create-update-dialog
     showDialog(create_update_dialog);
 
