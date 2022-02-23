@@ -5,17 +5,18 @@ let $ = (selector) => document.querySelector(selector);
 let table_body;
 let table_rows;
 let posts_info = [];
+let cols = ['title', 'date', 'summary']; // use for making more efficient code
 
 let delete_dialog;
 let delete_yes_button;
-let delete_no_button;
+let delete_no_button; // never used
 
 let create_update_dialog;
 let form_post_title;
 let form_post_date;
 let form_post_summary;
 let create_update_ok_button;
-let create_update_cancel_button;
+let create_update_cancel_button; //never used
 
 let create_new_post_button;
 
@@ -68,7 +69,7 @@ function createPostDialog(){
     // show create-update-dialog
     showDialog(create_update_dialog);
 
-    // on ok, add new row
+    // on ok, add new row to table and to posts_info
     create_update_ok_button.onclick = () => {
         var post_info = {'title': post_title, 'date': post_date, 'summary': post_summary};
         posts_info.push(post_info);
@@ -85,7 +86,7 @@ function updatePostDialog(post_index){
     post_date = form_post_date.value = post_info['date'];
     post_summary = form_post_summary.value = post_info['summary'];
 
-    // show update dialog
+    // show create-update-dialog
     showDialog(create_update_dialog);
 
     // on ok, perform update
