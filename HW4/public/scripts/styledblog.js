@@ -2,10 +2,9 @@
 
 let $ = (selector) => document.querySelector(selector);
 
+// declare variables for DOM elements
 let table_body;
 let table_rows;
-let posts_info = [];
-let cols = ['title', 'date', 'summary']; // use for making more efficient code
 
 let delete_dialog;
 let delete_yes_button;
@@ -20,12 +19,16 @@ let create_update_cancel_button; //never used
 
 let create_new_post_button;
 
+// declare variables for code to use
+let posts_info = [];
+let cols = ['title', 'date', 'summary']; // use for making more efficient code
+
 let post_title;
 let post_date;
 let post_summary;
 
 function createTable(){
-    table_body.innerHTML = "";
+    table_body.innerHTML = ""; // make table blank
     for(var post_index in posts_info){
         createTableRow(post_index, posts_info[post_index]);
     }
@@ -117,13 +120,10 @@ function showDialog(dialog){
 }
 
 window.addEventListener('DOMContentLoaded', ()=>{
+    // retrieve DOM elements
     table_body = $('#crud-table-body');
     table_rows = table_body.rows;
-    posts_info = window.localStorage.getItem('posts_info') === null ? 
-    [{"title":"OpenCV in Python","date":"4/5/2021","summary":"An exploration of the OpenCV Python library and its important functions."},
-    {"title":"Multithreading with Discord.py","date":"5/3/2021","summary":"How to use Python multithreading to handle intensive calculations alongside Discord Python API"},] :
-    JSON.parse(window.localStorage.getItem('posts_info'));
-    
+
     delete_dialog = $('#delete-dialog');
     delete_yes_button = $('#delete-yes-button');
     delete_no_button = $('#delete-no-button');
@@ -136,6 +136,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
     create_update_cancel_button = $('#create-update-cancel-button');
 
     create_new_post_button = $('#create-new-post-button')
+
+    // retrieve posts info, if nothing in local storage then prefill, else get local storage
+    posts_info = window.localStorage.getItem('posts_info') === null ? 
+    [{"title":"OpenCV in Python","date":"4/5/2021","summary":"An exploration of the OpenCV Python library and its important functions."},
+    {"title":"Multithreading with Discord.py","date":"5/3/2021","summary":"How to use Python multithreading to handle intensive calculations alongside Discord Python API"},] :
+    JSON.parse(window.localStorage.getItem('posts_info'));
     
     // create update value on change event listeners
     form_post_title.addEventListener('change', () => {
