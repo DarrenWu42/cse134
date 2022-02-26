@@ -29,22 +29,22 @@ let post_summary;
 
 function createTable(){
     table_body.innerHTML = ""; // make table blank
-    for(let post_index in posts_info){
+    for(var post_index in posts_info){
         createTableRow(post_index, posts_info[post_index]);
     }
 }
 
 function createTableRow(post_index, post_info){
-    let tr = table_body.insertRow(-1);
+    var tr = table_body.insertRow(-1);
 
-    for(let key in post_info){
-        let th = tr.insertCell(-1);
+    for(var key in post_info){
+        var th = tr.insertCell(-1);
         th.innerHTML = post_info[key];
     }
 
     // create edit button
-    let edit_cell = tr.insertCell(-1);
-    let edit_icon = document.createElement('img');
+    var edit_cell = tr.insertCell(-1);
+    var edit_icon = document.createElement('img');
 
     edit_icon.src = 'images/edit.svg';
     edit_icon.onclick = () => updatePostDialog(post_index);
@@ -52,8 +52,8 @@ function createTableRow(post_index, post_info){
     edit_cell.appendChild(edit_icon);
 
     // create delete button
-    let delete_cell = tr.insertCell(-1);
-    let delete_icon = document.createElement('img');
+    var delete_cell = tr.insertCell(-1);
+    var delete_icon = document.createElement('img');
 
     delete_icon.src = 'images/trash.svg';
     delete_icon.onclick = () => deletePostDialog(post_index);
@@ -72,7 +72,7 @@ function createPostDialog(){
 
     // on ok, add new row to table and to posts_info
     create_update_ok_button.onclick = () => {
-        let post_info = {'title': post_title, 'date': post_date, 'summary': post_summary};
+        var post_info = {'title': post_title, 'date': post_date, 'summary': post_summary};
         posts_info.push(post_info);
         createTableRow(table_rows.length, post_info);
     };
@@ -80,7 +80,7 @@ function createPostDialog(){
 
 function updatePostDialog(post_index){
     // retrieve post info
-    let post_info = posts_info[post_index];
+    var post_info = posts_info[post_index];
 
     // set new data and form data to old post data
     post_title = form_post_title.value = post_info.title;
@@ -92,7 +92,7 @@ function updatePostDialog(post_index){
 
     // on ok, perform update
     create_update_ok_button.onclick = () => {
-        let cells = table_rows[post_index].cells;
+        var cells = table_rows[post_index].cells;
         post_info.title = cells[0].innerHTML = post_title;
         post_info.date = cells[1].innerHTML = post_date;
         post_info.summary = cells[2].innerHTML = post_summary;
