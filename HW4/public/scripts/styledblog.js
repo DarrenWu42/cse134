@@ -83,9 +83,9 @@ function updatePostDialog(post_index){
     var post_info = posts_info[post_index];
 
     // set new data and form data to old post data
-    post_title = form_post_title.value = post_info['title'];
-    post_date = form_post_date.value = post_info['date'];
-    post_summary = form_post_summary.value = post_info['summary'];
+    post_title = form_post_title.value = post_info.title;
+    post_date = form_post_date.value = post_info.date;
+    post_summary = form_post_summary.value = post_info.summary;
 
     // show create-update-dialog
     showDialog(create_update_dialog);
@@ -93,9 +93,9 @@ function updatePostDialog(post_index){
     // on ok, perform update
     create_update_ok_button.onclick = () => {
         var cells = table_rows[post_index].cells;
-        post_info['title'] = cells[0].innerHTML = post_title;
-        post_info['date'] = cells[1].innerHTML = post_date;
-        post_info['summary'] = cells[2].innerHTML = post_summary;
+        post_info.title = cells[0].innerHTML = post_title;
+        post_info.date = cells[1].innerHTML = post_date;
+        post_info.summary = cells[2].innerHTML = post_summary;
     };
 }
 
@@ -135,7 +135,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     create_update_ok_button = $('#create-update-ok-button');
     create_update_cancel_button = $('#create-update-cancel-button');
 
-    create_new_post_button = $('#create-new-post-button')
+    create_new_post_button = $('#create-new-post-button');
 
     // retrieve posts info, if nothing in local storage then prefill, else get local storage
     posts_info = window.localStorage.getItem('posts_info') === null ? 
