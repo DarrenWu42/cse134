@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Experiments" />
+	<meta name="keywords" content="HTML, CSS, JavaScript" />
+	<meta name="author" content="Darren Wu" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Experiments</title>
+	<link href="images/favicon.ico" rel="icon" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+	<script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDPtOUwxFIoQNATKIszsXItciFMBzAsPqI",
+          authDomain: "cse134hw4-4242dw.firebaseapp.com",
+          projectId: "cse134hw4-4242dw",
+          storageBucket: "cse134hw4-4242dw.appspot.com",
+          messagingSenderId: "691282856016",
+          appId: "1:691282856016:web:d72ddb7eb3b840c5202955",
+          measurementId: "G-S2HHDVSLC3"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</head>
+
+<body>
+	<header>
+		<h1><a href="index.html">Darren Wu</a></h1>
+	</header>
+
+	<main>
+		<h2 id="experiments">Experiments</h2>
+            <h3>Emphasis on Coding</h3>
+                <p><em>Emphasis</em></p>
+                <code>
+                    console.log("Coding");
+                </code>
+            <h3>Quoted Details of Aside</h3>
+                <aside>
+                    <h4>Aside</h4>
+                    <pre>dramatic and literary device used in literature and media 
+that gives the audience a glimpse into the character's thoughts</pre>
+                </aside>
+
+                <details>
+                    <summary>Details</summary>
+                    <p>I can be opened and closed!</p>
+                </details>
+            <h3>Audio and Video</h3>
+                <video width="480" height="360" controls>
+                    <source src="videos/Rick_Astley-Never_Gonna_Give_You_Up.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <br/>
+                <audio controls>
+                    <source src="audio/Rick_Astley-Never_Gonna_Give_You_Up.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            <h3>Painting on a Canvas</h3>
+                <canvas id="myCanvas">
+                    Your browser does not support the canvas tag.
+                </canvas>
+                
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    ctx.globalAlpha = 0.2;
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(20, 20, 75, 50);
+                    ctx.fillStyle = "blue";
+                    ctx.fillRect(50, 50, 75, 50);
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(80, 80, 75, 50);
+                </script>
+            <h3>Frameception</h3>
+                <iframe src="experiments.html" title="Siteception" width="500"></iframe>
+            <h3>Favorite Foods</h3>
+                <ol>
+                    <li>Steak</li>
+                    <li>Noodles</li>
+                    <li>Eggs</li>
+                </ol>
+            <h3>Figuring it Out</h3>
+                <figure>
+                    <img src="images/masaMe.webp" alt="Darren Wu">
+                    <figcaption>The Master of this Website</figcaption>
+                </figure>
+            <h3>Picture This</h3>
+                <picture>
+                    <img src="images/masaMe.webp" alt="Darren Wu">
+                </picture>
+            
+	</main>
+
+	<footer>
+		<hr/>
+		<p>💯This page was made with &hearts; by Darren Wu 💯</p>
+	</footer>
+</body>
+
+</html>
