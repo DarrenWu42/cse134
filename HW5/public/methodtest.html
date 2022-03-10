@@ -9,14 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Method Test</title>
 	<link href="images/favicon.ico" rel="icon" />
-  <style>
-    table{
-      border-collapse: collapse;
-    }
-    tr {
-      border-bottom: 1px solid black;
-    }
-  </style>
+    <link rel="stylesheet" href="styles/main.css" />
 	<script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
@@ -50,7 +43,7 @@
 	<main>
     <section class="grey-section">
 	    <h2 id="method-test">Method Test</h2>
-        <form>
+        <form id="method-test-form">
             <fieldset>
                 <legend>Method Test Form</legend>
                 <label for="article-id">Article ID</label>
@@ -68,10 +61,10 @@
             </fieldset>
             <fieldset>
                 <legend>Method Test Buttons</legend>
-                <button id="post-button">POST Button</button>
-                <button id="get-button">GET Button</button>
-                <button id="put-button">PUT Button</button>
-                <button id="delete-button">DELETE Button</button>
+                <button type="button" id="post-button">POST Button</button>
+                <button type="button" id="get-button">GET Button</button>
+                <button type="button" id="put-button">PUT Button</button>
+                <button type="button" id="delete-button">DELETE Button</button>
             </fieldset>
         </form>
         <output id="response"></output>
