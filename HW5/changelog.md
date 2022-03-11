@@ -1,8 +1,36 @@
-Smooth scrolling:
-    Adapted a script that allows for smooth scrolling to different sections of the website.
+# Homework 5
 
-Clean up CSS:
-    Behind the scenes I did some cleaning up of the CSS file to enable better modularity. I created new classes for each section of the portfolio and used grey section and white section classes solely for how something should look and the new classes for specific css for each section.
+## Lighthouse Original Score
+### Performance (94) Changes
+- Text remaining visible
+  - Added css property font-display to font faces
+- Images not having set width and height
+  - Company images didn't have a height property set, so I set it to 20vw
+  
+### Accessibility (100) Changes
+- None
 
-Added Google Analytics:
-    I did this through the Firebase console and just adding a few lines of code to the pre-existing firebase script for the website. The purpose this serves is to track how many users my website has and how user activity varies over time.
+### Best Practices (83) Changes
+- Serving images with higher resolution
+  - Some of my company images are stored at a lower resolution than the max resolution I set them to, so I updated them
+  - Changed the max-width and max-height to be at the correctly stored resolution
+- Browser errors
+  - This one was unavoidable since I'm using an adblocker and the error is with Google Analytics
+
+### SEO (90) Changes
+- Crawlable Links
+  - Needed to change homepage href to "index.html" instead of having it as just ""
+
+## Lighthouse Post Changes Score
+### Performance (95)
+- A few smaller diagnostics problems
+  
+### Accessibility (100)
+- None
+
+### Best Practices (92)
+- Browser errors
+- CSP effective against XSS attacks
+
+### SEO (100)
+- None

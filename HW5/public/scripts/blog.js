@@ -27,8 +27,6 @@ let post_title;
 let post_date;
 let post_summary;
 
-let newButton = () => document.createElement('button');
-
 function createTable(){
     table_body.innerHTML = ""; // make table blank
     for(let post_index in posts_info){
@@ -46,21 +44,21 @@ function createTableRow(post_index, post_info){
 
     // create edit button
     let edit_cell = tr.insertCell(-1);
-    let edit_button = newButton();
+    let edit_icon = document.createElement('img');
 
-    edit_button.onclick = () => updatePostDialog(post_index);
-    edit_button.innerHTML = "Edit";
+    edit_icon.src = 'images/edit.svg';
+    edit_icon.onclick = () => updatePostDialog(post_index);
 
-    edit_cell.appendChild(edit_button);
+    edit_cell.appendChild(edit_icon);
 
     // create delete button
     let delete_cell = tr.insertCell(-1);
-    let delete_button = newButton();
+    let delete_icon = document.createElement('img');
 
-    delete_button.onclick = () => deletePostDialog(post_index);
-    delete_button.innerHTML = "Delete";
+    delete_icon.src = 'images/trash.svg';
+    delete_icon.onclick = () => deletePostDialog(post_index);
 
-    delete_cell.appendChild(delete_button);
+    delete_cell.appendChild(delete_icon);
 }
 
 function createPostDialog(){

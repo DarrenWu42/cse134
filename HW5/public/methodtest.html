@@ -9,7 +9,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Method Test</title>
 	<link href="images/favicon.ico" rel="icon" />
-    <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    output{
+      text-align: left;
+      font-size: 1vw;
+    }
+  </style>
 	<script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
@@ -67,7 +73,12 @@
                 <button type="button" id="delete-button">DELETE Button</button>
             </fieldset>
         </form>
-        <output id="response"></output>
+      <h2 id="method-test">Output</h2>
+        <output id="response">
+          <pre id="json">
+
+          </pre>
+        </output>
     </section>
 	<footer>
 		<hr/>

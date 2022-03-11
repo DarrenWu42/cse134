@@ -7,16 +7,9 @@
 	<meta name="keywords" content="HTML, CSS, JavaScript" />
 	<meta name="author" content="Darren Wu" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>CRUD</title>
+	<title>Styled CRUD</title>
 	<link href="images/favicon.ico" rel="icon" />
-  <style>
-    table{
-      border-collapse: collapse;
-    }
-    tr {
-      border-bottom: 1px solid black;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/main.css" />
 	<script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
@@ -40,6 +33,22 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
+  <style>
+    table img{
+      max-width: 100px;
+      width: 10vw;
+    }
+    table, th, td {
+      border: 0px solid black;
+      border-collapse: collapse;
+    }
+    tr{
+      border-bottom: 1px solid black;
+    }
+    td, td{
+      padding: 2px 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -49,7 +58,7 @@
 
 	<main>
     <section class="grey-section">
-		  <h2 id="crud">CRUD</h2>
+		  <h2 id="styldecrud">Styled CRUD</h2>
       <table id="crud-table">
         <thead>
           <tr>
