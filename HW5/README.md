@@ -44,4 +44,6 @@ Link: https://cse134hw5-4242dw.web.app/
 - None
 
 ## Part 3 Implementation
+I pretty much copied the CRUD.html and blog.js from the previous hw and just made several changes to the backend to get it to work with the Firebase Realtime Database.
+
 I wanted to use FirebaseUI for my login since it seemed simple. To use it though, I had to revert to firebase SDK v8, which involved quite a few changes on the crud.html page of the site. After that, I have a script that checks if a user is signed in or not. If they are signed in then it removes the login container and keeps the sign out button and the paragraph that says which user is signed in. If they are not signed in then it keeps the login container and removes the sign out button and many of the CRUD elements that allows an interaction with the backend. This isn't ideal since it does briefly show these elements and this isn't that secure, but it works and I don't really want to put more work into it anymore.
