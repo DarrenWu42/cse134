@@ -1,10 +1,15 @@
 /* blog.js */
-
 let $ = (selector) => document.querySelector(selector);
 
+let loggedIn = false;
+
+let postListRef;
+
 // declare variables for DOM elements
+let actions_header;
+let actions_row;
 let table_body;
-let table_rows;
+let sign_out_button;
 
 let delete_dialog;
 let delete_yes_button;
@@ -12,59 +17,65 @@ let delete_no_button; // never used
 
 let create_update_dialog;
 let form_post_title;
-let form_post_date;
 let form_post_summary;
 let create_update_ok_button;
 let create_update_cancel_button; //never used
 
 let create_new_post_button;
 
-// declare variables for code to use
-let posts_info = [];
-let cols = ['title', 'date', 'summary']; // use for making more efficient code
-
 let post_title;
-let post_date;
+let post_author;
 let post_summary;
 
-function createTable(){
-    table_body.innerHTML = ""; // make table blank
-    for(let post_index in posts_info){
-        createTableRow(post_index, posts_info[post_index]);
+function createTableRow(post_id, post_info){
+    let tr = table_body.insertRow(-1);
+
+    for(let info of post_info){
+        let th = tr.insertCell(-1);
+        th.innerHTML = info;
+    }
+
+    tr.id = post_id;
+
+    if(loggedIn){
+        // create edit button
+        let edit_cell = tr.insertCell(-1);
+        let edit_icon = document.createElement('img');
+
+        edit_icon.src = 'images/edit.svg';
+        edit_icon.classList.add('clickable-image');
+        edit_icon.onclick = () => updatePostDialog(post_id);
+
+        edit_cell.appendChild(edit_icon);
+
+        // create delete button
+        let delete_cell = tr.insertCell(-1);
+        let delete_icon = document.createElement('img');
+
+        delete_icon.src = 'images/trash.svg';
+        delete_icon.classList.add('clickable-image');
+        delete_icon.onclick = () => deletePostDialog(post_id);
+
+        delete_cell.appendChild(delete_icon);
     }
 }
 
-function createTableRow(post_index, post_info){
-    let tr = table_body.insertRow(-1);
+function updateTableRow(post_id, post_info){
+    let cells = $('#' + post_id).cells;
 
-    for(let key in post_info){
-        let th = tr.insertCell(-1);
-        th.innerHTML = post_info[key];
+    for(let i = 0; i < 4; i++){
+        cells[i].innerHTML = post_info[i];
     }
+}
 
-    // create edit button
-    let edit_cell = tr.insertCell(-1);
-    let edit_icon = document.createElement('img');
-
-    edit_icon.src = 'images/edit.svg';
-    edit_icon.onclick = () => updatePostDialog(post_index);
-
-    edit_cell.appendChild(edit_icon);
-
-    // create delete button
-    let delete_cell = tr.insertCell(-1);
-    let delete_icon = document.createElement('img');
-
-    delete_icon.src = 'images/trash.svg';
-    delete_icon.onclick = () => deletePostDialog(post_index);
-
-    delete_cell.appendChild(delete_icon);
+function deleteTableRow(post_id){
+    let row = $('#' + post_id);
+    row.remove();
 }
 
 function createPostDialog(){
     // set new data and form data to empty
     post_title = form_post_title.value = '';
-    post_date = form_post_date.value = '';
     post_summary = form_post_summary.value = '';
 
     // show create-update-dialog
@@ -72,30 +83,41 @@ function createPostDialog(){
 
     // on ok, add new row to table and to posts_info
     create_update_ok_button.onclick = () => {
-        let post_info = {'title': post_title, 'date': post_date, 'summary': post_summary};
-        posts_info.push(post_info);
-        createTableRow(table_rows.length, post_info);
+        let newPostRef = postListRef.push();
+
+        let post_date = getCurrentDate();
+
+        newPostRef.set({
+            'title': post_title,
+            'author': post_author,
+            'date': post_date,
+            'summary': post_summary
+        });
     };
 }
 
-function updatePostDialog(post_index){
-    // retrieve post info
-    let post_info = posts_info[post_index];
+function updatePostDialog(post_id){
+    let cells = $('#' + post_id).cells;
 
     // set new data and form data to old post data
-    post_title = form_post_title.value = post_info.title;
-    post_date = form_post_date.value = post_info.date;
-    post_summary = form_post_summary.value = post_info.summary;
+    post_title = form_post_title.value = cells[0].innerHTML;
+    post_summary = form_post_summary.value = cells[3].innerHTML;
 
     // show create-update-dialog
     showDialog(create_update_dialog);
 
     // on ok, perform update
     create_update_ok_button.onclick = () => {
-        let cells = table_rows[post_index].cells;
-        post_info.title = cells[0].innerHTML = post_title;
-        post_info.date = cells[1].innerHTML = post_date;
-        post_info.summary = cells[2].innerHTML = post_summary;
+        let postRef = postListRef.child(post_id);
+
+        let post_date = getCurrentDate();
+
+        postRef.set({
+            'title': post_title,
+            'author': post_author,
+            'date': post_date,
+            'summary': post_summary
+        });
     };
 }
 
@@ -103,11 +125,10 @@ function deletePostDialog(post_index){
     // show delete-dialog
     showDialog(delete_dialog);
 
-    // on yes, perform delete and remake table
+    // on yes, perform delete
     delete_yes_button.onclick = () => {
-        posts_info.splice(post_index, 1);
-        table_body.deleteRow(post_index);
-        createTable();
+        let postRef = postListRef.child(post_id);
+        database.remove(postRef);
     };
 }
 
@@ -119,10 +140,31 @@ function showDialog(dialog){
     }
 }
 
+function signOutUser(){
+    auth.signOut().then(() => {
+        location.reload();
+    }).catch((error) => {
+        location.reload();
+    });
+}
+
+function getCurrentDate(){
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+
+    return mm + '/' + dd + '/' + yyyy;
+}
+
 window.addEventListener('DOMContentLoaded', ()=>{
+    postListRef = database.ref('posts');
+
     // retrieve DOM elements
+    actions_header = $('#actions-header');
+    actions_row = $('#actions-row');
     table_body = $('#crud-table-body');
-    table_rows = table_body.rows;
+    sign_out_button = $('#sign-out-button');
 
     delete_dialog = $('#delete-dialog');
     delete_yes_button = $('#delete-yes-button');
@@ -130,26 +172,50 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     create_update_dialog = $('#create-update-dialog');
     form_post_title = $('#post-title');
-    form_post_date = $('#post-date');
     form_post_summary = $('#post-summary');
     create_update_ok_button = $('#create-update-ok-button');
     create_update_cancel_button = $('#create-update-cancel-button');
 
     create_new_post_button = $('#create-new-post-button');
 
-    // retrieve posts info, if nothing in local storage then prefill, else get local storage
-    posts_info = window.localStorage.getItem('posts_info') === null ? 
-    [{"title":"OpenCV in Python","date":"4/5/2021","summary":"An exploration of the OpenCV Python library and its important functions."},
-    {"title":"Multithreading with Discord.py","date":"5/3/2021","summary":"How to use Python multithreading to handle intensive calculations alongside Discord Python API"},] :
-    JSON.parse(window.localStorage.getItem('posts_info'));
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            post_author = user.email;
+            loggedIn = true;
+
+            $('#firebaseui-auth-container').remove();
+            $('#loader').remove();
+        } else {
+            post_author = '';
+
+            loggedIn = false;
+
+            actions_header.remove();
+            actions_row.remove();
+            create_new_post_button.remove();
+            sign_out_button.remove();
+        }
+    });
+
+    // setting up database callbacks
+    postListRef.on('child_added', (data) => {
+        console.log(data.key, ':{', data.val(), '\n}');
+        createTableRow(data.key, [data.val().title, data.val().author, data.val().date, data.val().summary]);
+    });
+      
+    postListRef.on('child_changed', (data) => {
+        updateTableRow(data.key, [data.val().title, data.val().author, data.val().date, data.val().summary]);
+    });
+      
+    postListRef.on('child_removed', (data) => {
+        deleteTableRow(data.key);
+    });
     
     // create update value on change event listeners
     form_post_title.addEventListener('change', () => {
         post_title = DOMPurify.sanitize(form_post_title.value);
-    });
-
-    form_post_date.addEventListener('change', () => {
-        post_date = DOMPurify.sanitize(form_post_date.value);
     });
 
     form_post_summary.addEventListener('change', () => {
@@ -158,10 +224,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     // onclick create new post
     create_new_post_button.onclick = () => createPostDialog();
-    
-    createTable();
+    sign_out_button.onclick = () => signOutUser();
 });
 
-window.addEventListener("beforeunload", () => { 
+window.addEventListener('beforeunload', () => { 
     window.localStorage.setItem('posts_info', JSON.stringify(posts_info));
 });

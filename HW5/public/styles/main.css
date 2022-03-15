@@ -82,6 +82,10 @@ h3{
   margin-block: .4em;
 }
 
+.clickable-image{
+    cursor: pointer;
+}
+
 /***** header *****/
 header {
   background-image: url("../images/bg_header.jpg");

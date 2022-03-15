@@ -2,7 +2,7 @@
 
 // taken from: https://webdesign.tutsplus.com/tutorials/smooth-scrolling-vanilla-javascript--cms-35165
 window.addEventListener('DOMContentLoaded', ()=>{
-    const links = document.querySelectorAll("a");
+    const links = document.getElementsByClassName('on-page-link');
     
     for (const link of links) {
         link.addEventListener("click", clickHandler);

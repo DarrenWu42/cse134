@@ -10,30 +10,11 @@
 	<title>Styled CRUD</title>
 	<link href="images/favicon.ico" rel="icon" />
   <link rel="stylesheet" href="styles/main.css" />
-	<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDG4CRmraLOBe6b64j1mxTE8szMos-o3Ms",
-      authDomain: "cse134hw5-4242dwu.firebaseapp.com",
-      projectId: "cse134hw5-4242dwu",
-      storageBucket: "cse134hw5-4242dwu.appspot.com",
-      messagingSenderId: "750287127588",
-      appId: "1:750287127588:web:53e253cd288579aaea44b1",
-      measurementId: "G-6NWJ8QSS4R"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
   <style>
+    .grey-section{
+      padding: 20px 5vw;
+    }
     table img{
       max-width: 100px;
       width: 10vw;
@@ -58,16 +39,21 @@
 
 	<main>
     <section class="grey-section">
+      <h2 id="firebase-login">Login</h2>
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
+      <button id="sign-out-button">Sign Out</button>
 		  <h2 id="styldecrud">Styled CRUD</h2>
       <table id="crud-table">
         <thead>
           <tr>
             <th rowspan="2">Post Title</th>
+            <th rowspan="2">Post Author</th>
             <th rowspan="2">Post Date</th>
             <th rowspan="2">Post Summary</th>
-            <th colspan="2">Actions</th>
+            <th id="actions-header" colspan="2">Actions</th>
           </tr>
-          <tr>
+          <tr id="actions-row">
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -93,10 +79,6 @@
       <br/>
       <textarea type="text" id="post-title" name="posttitle" placeholder="Post Title..."></textarea>
       <br/>
-      <label for="post-date">Post Date</label>
-      <br/>
-      <input type="text" id="post-date" name="postdate" placeholder="Post Date...">
-      <br/>
       <label for="post-summary">Post Summary</label>
       <br/>
       <textarea type="text" id="post-summary" name="postsummary" placeholder="Post Summary..."></textarea>
@@ -111,8 +93,14 @@
 		<hr/>
 		<p>💯This page was made with &hearts; by Darren Wu 💯</p>
 	</footer>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script defer src="./scripts/init-firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
   <script type="text/javascript" src="./scripts/dompurify/purify.min.js"></script>
-  <script type="module" src="./scripts/blog.js"></script>
+  <script src="./scripts/blog.js"></script>
 </body>
 
 </html>
