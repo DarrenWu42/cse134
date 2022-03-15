@@ -6,10 +6,12 @@ let loggedIn = false;
 let postListRef;
 
 // declare variables for DOM elements
+let current_user;
+let sign_out_button;
+
 let actions_header;
 let actions_row;
 let table_body;
-let sign_out_button;
 
 let delete_dialog;
 let delete_yes_button;
@@ -161,10 +163,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
     postListRef = database.ref('posts');
 
     // retrieve DOM elements
+    current_user = $('#current-user');
+    sign_out_button = $('#sign-out-button');
+
     actions_header = $('#actions-header');
     actions_row = $('#actions-row');
     table_body = $('#crud-table-body');
-    sign_out_button = $('#sign-out-button');
 
     delete_dialog = $('#delete-dialog');
     delete_yes_button = $('#delete-yes-button');
@@ -183,15 +187,18 @@ window.addEventListener('DOMContentLoaded', ()=>{
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
             post_author = user.email;
+
             loggedIn = true;
 
+            current_user.innerHTML='Current User is: ' + post_author;
             $('#firebaseui-auth-container').remove();
             $('#loader').remove();
         } else {
             post_author = '';
 
             loggedIn = false;
-
+            
+            current_user.remove();
             actions_header.remove();
             actions_row.remove();
             create_new_post_button.remove();
